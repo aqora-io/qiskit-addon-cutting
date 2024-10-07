@@ -115,18 +115,11 @@ def cut_gates(
     Returns:
         A copy of the input circuit with the specified gates replaced with :class:`.TwoQubitQPDGate`\ s
         and a list of :class:`.QPDBasis` instances -- one for each decomposed gate.
-
-    Raises:
-        ValueError: The input circuit should contain no classical bits or registers.
     """
-    if len(circuit.cregs) != 0 or circuit.num_clbits != 0:
-        raise ValueError(
-            "Circuits input to cut_gates should contain no classical registers or bits."
-        )
-    # Replace specified gates with TwoQubitQPDGates
     if not inplace:
         circuit = circuit.copy()
 
+    # Replace specified gates with TwoQubitQPDGates
     bases = []
     for gate_id in gate_ids:
         gate = circuit.data[gate_id]
@@ -196,10 +189,10 @@ def partition_problem(
     if observables is not None and any(obs.phase != 0 for obs in observables):
         raise ValueError("An input observable has a phase not equal to 1.")
 
-    if len(circuit.cregs) != 0 or circuit.num_clbits != 0:
-        raise ValueError(
-            "Circuits input to partition_problem should contain no classical registers or bits."
-        )
+    # if len(circuit.cregs) != 0 or circuit.num_clbits != 0:
+    #     raise ValueError(
+    #         "Circuits input to partition_problem should contain no classical registers or bits."
+    #     )
 
     # Determine partition labels from connectivity (ignoring TwoQubitQPDGates)
     # if partition_labels is not specified

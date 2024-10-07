@@ -88,7 +88,10 @@ from .cutting_decomposition import (
     PartitionedCuttingProblem,
 )
 from .cutting_experiments import generate_cutting_experiments
-from .cutting_reconstruction import reconstruct_expectation_values
+from .cutting_reconstruction import (
+    reconstruct_expectation_values,
+    reconstruct_distribution,
+)
 from .wire_cutting_transforms import cut_wires, expand_observables
 from .automated_cut_finding import find_cuts, DeviceConstraints, OptimizationParameters
 
@@ -104,6 +107,7 @@ __all__ = [
     "cut_gates",
     "generate_cutting_experiments",
     "reconstruct_expectation_values",
+    "reconstruct_distribution",
     "PartitionedCuttingProblem",
     "cut_wires",
     "expand_observables",
