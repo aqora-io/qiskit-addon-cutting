@@ -35,7 +35,7 @@ from .cutting_decomposition import decompose_observables
 
 def generate_cutting_experiments(
     circuits: QuantumCircuit | dict[Hashable, QuantumCircuit],
-    observables: PauliList | dict[Hashable, PauliList],
+    observables: PauliList | dict[Hashable, PauliList] | None,
     num_samples: int | float,
 ) -> tuple[
     list[QuantumCircuit] | dict[Hashable, list[QuantumCircuit]],
